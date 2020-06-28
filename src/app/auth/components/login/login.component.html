@@ -1,0 +1,29 @@
+<div id=loginFormHolder class='d-flex flex-column justify-content-center align-content-center'>
+    <div class='row'>
+        <div class='col d-flex justify-content-center'>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" class='w-50' action="">
+                <p class="text-center s-dark-cr s-no-outline h1"> Login </p>
+                <p class="text-center mb-4 s-supp-cr-1 s-no-outline lead"> Welcome back to USERS app !</p>
+                <!--  UserName Inp -->
+                <div class="input-group mb-3">
+                    <i disabled class="s-icon-btn s-icon-user s-no-rounded-right s-dark-bg rounded-left border-0"></i>
+                    <input type="text" name="username" ngModel required #userName="ngModel" placeholder="UserName..."
+                        class='form-control p-4 s-supp-cr-1 s-supp-bg-1-opt5 border-0 rounded-right s-no-rounded-left'>
+                </div>
+                <!-- Password ip -->
+                <div class="input-group mb-3">
+                    <i disabled class="s-icon-btn s-icon-pass s-no-rounded-right s-dark-bg rounded-left border-0"></i>
+                    <input type="password" name="password" ngModel required #password="ngModel" placeholder="Password..."
+                        class='form-control p-4 s-supp-cr-1 s-supp-bg-1-opt5 border-0 rounded-right s-no-rounded-left'>
+                </div>
+                <div class="input-group mb-3">
+                    <a class='ml-auto' [routerLink]="['/register']">Are you new here?</a>
+                </div>
+                <!-- Login Inp -->
+                <input id='submitLogin' type="submit" value="Login"
+                    [disabled]='f.invalid'
+                    class='btn my-3 bg-primary text-white rounded btn-lg s-submit w-100'>
+            </form>
+        </div>
+    </div>
+</div>

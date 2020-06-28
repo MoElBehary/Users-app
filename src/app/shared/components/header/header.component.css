@@ -1,0 +1,8 @@
+.s-brand-icon{
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../../assets/users.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,62 @@
+<div class='container'>
+    <div class='row mt-5'>
+        <div class='col'>
+            <h1>Users</h1>
+        </div>
+    </div>
+    <div class='row mt-4'>
+        <div class='col'>
+            <ul class="list-group">
+                <li *ngFor='let user of users_service.users let i = index'
+                 class="list-group-item  d-flex align-items-center"
+                 [class.bg-light]='user.id === auth_srvice.user.id'>
+                    <p class='h5 m-0 text-capitalize' [class.text-primary]='user.id === auth_srvice.user.id'>
+                        {{user.username}}
+                         <span class='text-muted ml-2 lead' *ngIf='user.id === auth_srvice.user.id '>( You )</span>
+                        </p>
+                        <button *ngIf='user.id === auth_srvice.user.id' class='btn bg-primary text-white ml-auto mr-4'
+                        data-toggle="modal" data-target="#staticBackdrop">Change Password</button>
+                        <button (click)='deleteUser(user.id, user.username, i)' class='btn bg-danger text-white' [class.ml-auto]='user.id !== auth_srvice.user.id'>Delete</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Change Password Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <!-- header -->
+            <div class="modal-header border-0 s-dark-bg rounded-top shadow-sm d-flex align-items-center p-4">
+                <p class="modal-title s-supp-cr-1 m-auto h2" id="staticBackdropLabel">Set your new password</p>
+            </div>
+            <!-- body -->
+            <div class="modal-body s-dark2-bg">
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col py-5'>
+                            <form action="">
+                                <!--  full name Inp -->
+                                <div class="input-group mb-3">
+                                    <i disabled
+                                        class="s-icon-btn s-icon-password s-no-rounded-right s-dark-bg rounded-left border-0"></i>
+                                    <input #passwordInp type="password" name="password" placeholder="New Password..." required
+                                        class='form-control p-4 s-supp-cr-1 s-supp-bg-1-opt5  border-0 rounded-right s-no-rounded-left'>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footers -->
+            <div class="modal-footer s-dark-bg border-0">
+                <!-- Close -->
+                <button (click)='refreshInp()' type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- Save -->
+                <button (click)='changePassword(passwordInp.value)' type="button" class="btn text-white bg-primary px-5"
+                    data-dismiss="modal">Set New Password</button>
+            </div>
+        </div>
+    </div>
+</div>

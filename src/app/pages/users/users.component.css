@@ -1,0 +1,19 @@
+.s-icon-btn{
+    width: 60px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.s-icon-password{
+     background-image: url('/assets/pass.png');
+}
+.s-save-btn{
+    transition: all ease-in-out .2s;
+}
+.s-save-btn:hover{
+  background-color:#9870E4!important;
+  color: #222222 !important;
+}
+textarea {
+    resize: none;
+}

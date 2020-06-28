@@ -1,0 +1,26 @@
+<ng-progress id="progressBar" [spinner]="false" [color]='progress_service.currentColor' [thick]='true'></ng-progress>
+<ngx-alerts></ngx-alerts>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <i class='s-brand-icon d-inline-block mr-2'></i>
+        <a class="navbar-brand" href="#">Users App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf='!auth_service.loggedIn()' class="nav-item">
+                <a class="nav-link" [routerLink]="['login']" routerLinkActive='active'>Login</a>
+            </li>
+            <li *ngIf='!auth_service.loggedIn()' class="nav-item">
+                <a class="nav-link" [routerLink]="['register']" routerLinkActive='active'>Register</a>
+            </li>
+            <li *ngIf='auth_service.loggedIn()' class="nav-item">
+                <a class="nav-link" [routerLink]="['/']" routerLinkActive='active'>Users</a>
+            </li>
+            <li *ngIf='auth_service.loggedIn()' class="nav-item">
+                <a  (click)='logOut()' class="nav-link" [routerLink]="['login']" routerLinkActive='active'>Logout | {{auth_service.user?.username}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
